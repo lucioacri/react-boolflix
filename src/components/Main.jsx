@@ -6,6 +6,10 @@ export default function Main({ resultsList }) {
     return "https://flagcdn.com/un.svg";
   };
 
+  const roundVote = (vote) => {
+    return Math.round(vote / 2);
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -31,7 +35,7 @@ export default function Main({ resultsList }) {
                       alt={result.original_language}
                     />
                   </li>
-                  <li>Vote: {result.vote_average}</li>
+                  <li>Vote: {roundVote(result.vote_average)} / 5</li>
                 </ul>
               </li>
             ))}
