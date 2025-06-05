@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Main from "./components/Main";
+import Header from "./components/Header";
 
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
   const apiUrl = "https://api.themoviedb.org/3/search/movie";
   const apiParams = {
     api_key: apiKey,
-    query: "ritorno",
+    query: "il sh",
   };
 
   const queryString = new URLSearchParams(apiParams).toString();
@@ -20,17 +22,8 @@ function App() {
   }, []);
   return (
     <>
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <ul>
-              {resultsList.map((result, index) => (
-                <li key={index}>{result.title}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Header />
+      <Main resultsList={resultsList} />
     </>
   );
 }
