@@ -20,7 +20,7 @@
   opacity: 0;
 }
 
-.card-hover:hover img.card-img-top {
+.card-hover:hover .card-img-top {
   opacity: 0;
 }
 

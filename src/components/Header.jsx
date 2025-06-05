@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { ResultsContext } from "../context/ResultsContext";
 
-export default function Header({ onSearch }) {
-  const [search, setSearch] = useState("");
+export default function Header() {
+  const { searchQuery, setSearchQuery } = useContext(ResultsContext);
+
   const handleForm = (e) => {
     e.preventDefault();
-    onSearch(search);
-    setSearch("");
   };
 
   return (
@@ -14,8 +14,8 @@ export default function Header({ onSearch }) {
         <input
           type="text"
           placeholder="Search..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
         <button type="submit" className="btn btn-primary">
           Search
