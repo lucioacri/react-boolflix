@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-export default function Header() {
+export default function Header({ onSearch }) {
   const [search, setSearch] = useState("");
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(search);
+    onSearch(search);
     setSearch("");
   };
 
