@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
+
 export default function Main({ resultsList }) {
   const getFlagUrl = (language) => {
     const lang = language.toLowerCase();
@@ -9,6 +13,14 @@ export default function Main({ resultsList }) {
   const roundVote = (vote) => {
     return Math.round(vote / 2);
   };
+
+  function starsCounter(vote) {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      stars.push(<FontAwesomeIcon icon={i < vote ? solidStar : regularStar} />);
+    }
+    return stars;
+  }
 
   return (
     <div className="container">
@@ -36,6 +48,7 @@ export default function Main({ resultsList }) {
                     />
                   </li>
                   <li>Vote: {roundVote(result.vote_average)} / 5</li>
+                  <li>{starsCounter(roundVote(result.vote_average))}</li>
                 </ul>
               </li>
             ))}
