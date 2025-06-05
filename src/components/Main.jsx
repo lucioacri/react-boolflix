@@ -13,9 +13,12 @@ export default function Main({ resultsList }) {
           <ul>
             {resultsList.map((result, index) => (
               <li key={index}>
-                {result.title}
+                {result.title || result.name}
                 <ul>
-                  <li>Original Title: {result.original_title}</li>
+                  <li>
+                    Original Title:{" "}
+                    {result.original_title || result.original_name}
+                  </li>
                   <li>
                     Language:{" "}
                     <img
