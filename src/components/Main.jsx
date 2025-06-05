@@ -1,4 +1,11 @@
 export default function Main({ resultsList }) {
+  const getFlagUrl = (language) => {
+    const lang = language.toLowerCase();
+    if (lang === "en") return "https://flagcdn.com/gb.svg";
+    if (lang === "it") return "https://flagcdn.com/it.svg";
+    return "https://flagcdn.com/un.svg";
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -9,7 +16,14 @@ export default function Main({ resultsList }) {
                 {result.title}
                 <ul>
                   <li>Original Title: {result.original_title}</li>
-                  <li>Language: {result.original_language}</li>
+                  <li>
+                    Language:{" "}
+                    <img
+                      className="flag-img"
+                      src={getFlagUrl(result.original_language)}
+                      alt={result.original_language}
+                    />
+                  </li>
                   <li>Vote: {result.vote_average}</li>
                 </ul>
               </li>
