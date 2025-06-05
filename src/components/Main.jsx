@@ -14,6 +14,10 @@ export default function Main({ resultsList }) {
             {resultsList.map((result, index) => (
               <li key={index}>
                 {result.title || result.name}
+                <img
+                  src={`https://image.tmdb.org/t/p/w300${result.poster_path}`}
+                  alt={result.title || result.name}
+                />
                 <ul>
                   <li>
                     Original Title:{" "}
