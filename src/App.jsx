@@ -16,15 +16,15 @@ function App() {
 
   const queryString = new URLSearchParams(apiParams).toString();
 
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
   useEffect(() => {
     axios
       .get(`${apiUrl}?${queryString}`)
       .then((res) => setResultsList(res.data.results));
   }, [searchQuery]);
-
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-  };
 
   return (
     <>
