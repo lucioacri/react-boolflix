@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { ResultsContext } from "../context/ResultsContext";
 
 export default function Header() {
-  const { searchQuery, setSearchQuery } = useContext(ResultsContext);
+  const { searchQuery, setSearchQuery, search } = useContext(ResultsContext);
 
   const handleForm = (e) => {
     e.preventDefault();
+    search();
+    console.log("form inviato");
   };
 
   return (
